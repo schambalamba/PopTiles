@@ -1,0 +1,136 @@
+<Window x:Class="TaskbarGruppen.ManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource L.AppName}" Width="920" Height="620" MinWidth="680" MinHeight="460"
+        WindowStartupLocation="CenterScreen" Background="{DynamicResource Bg}" Foreground="{DynamicResource Fg}"
+        FontFamily="Segoe UI Variable Text, Segoe UI" FontSize="13" UseLayoutRounding="True"
+        TextOptions.TextFormattingMode="Display" Icon="Assets/app.ico">
+
+  <Grid Margin="16">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="230" />
+      <ColumnDefinition Width="16" />
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+
+    <DockPanel>
+      <DockPanel DockPanel.Dock="Top" Margin="2,0,0,8">
+        <Button DockPanel.Dock="Right" Content="{DynamicResource L.Help}" Padding="10,3" Click="Help_Click" />
+        <TextBlock Text="{DynamicResource L.Groups}" FontWeight="SemiBold" FontSize="15" VerticalAlignment="Center" />
+      </DockPanel>
+      <Grid DockPanel.Dock="Bottom" Margin="0,8,0,0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="8" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Button x:Name="NewGroupButton" Content="{DynamicResource L.NewGroup}" Padding="2,6" Style="{StaticResource PrimaryButton}" Click="NewGroup_Click" />
+        <Button x:Name="DeleteGroupButton" Grid.Column="2" Content="{DynamicResource L.Delete}" Padding="2,6" Click="DeleteGroup_Click" />
+      </Grid>
+      <Border Background="{DynamicResource Panel}" BorderBrush="{DynamicResource Line}" BorderThickness="1" CornerRadius="6" Padding="4">
+        <ListBox x:Name="GroupList" DisplayMemberPath="Name" SelectionChanged="GroupList_SelectionChanged" />
+      </Border>
+    </DockPanel>
+
+    <Grid x:Name="DetailPanel" Grid.Column="2">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+
+      <DockPanel Margin="0,0,0,10">
+        <Button DockPanel.Dock="Right" Margin="8,0,0,0" Padding="8,4" Click="ChangeIcon_Click" AutomationProperties.Name="{DynamicResource L.ChangeIcon}">
+          <StackPanel Orientation="Horizontal">
+            <Image x:Name="GroupIconPreview" Width="24" Height="24" Margin="0,0,8,0" RenderOptions.BitmapScalingMode="Fant" />
+            <TextBlock Text="{DynamicResource L.ChangeIcon}" VerticalAlignment="Center" />
+          </StackPanel>
+        </Button>
+        <TextBlock Text="{DynamicResource L.Name}" VerticalAlignment="Center" Width="130" Margin="2,0,0,0" />
+        <TextBox x:Name="GroupNameBox" LostFocus="GroupName_LostFocus"
+                 Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+      </DockPanel>
+
+      <WrapPanel Grid.Row="1" Margin="0,0,0,8">
+        <Button Content="{DynamicResource L.AddApp}" Style="{StaticResource PrimaryButton}" Margin="0,0,6,0" Click="AddApp_Click" />
+        <Button Content="{DynamicResource L.File}" Margin="0,0,6,0" Click="AddFile_Click" />
+        <Button Content="{DynamicResource L.Folder}" Margin="0,0,6,0" Click="AddFolder_Click" />
+      </WrapPanel>
+
+      <Border Grid.Row="2" Background="{DynamicResource Panel}" BorderBrush="{DynamicResource Line}" BorderThickness="1" CornerRadius="6" Padding="4">
+        <Grid>
+          <ListBox x:Name="ItemList" AllowDrop="True" Drop="ItemList_Drop" DragOver="ItemList_DragOver"
+                   PreviewMouseLeftButtonDown="ItemList_PreviewMouseLeftButtonDown" PreviewMouseMove="ItemList_PreviewMouseMove"
+                   SelectionChanged="ItemList_SelectionChanged" KeyDown="ItemList_KeyDown">
+            <ListBox.ItemTemplate>
+              <DataTemplate>
+                <DockPanel>
+                  <Image Source="{Binding Icon}" Width="24" Height="24" Margin="0,0,10,0" RenderOptions.BitmapScalingMode="Fant" />
+                  <TextBlock Text="{Binding Title}" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" />
+                </DockPanel>
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+          </ListBox>
+          <TextBlock x:Name="ItemsHint" Foreground="{DynamicResource FgDim}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                     IsHitTestVisible="False" TextAlignment="Center"
+                     Text="{DynamicResource L.ItemsHint}" TextWrapping="Wrap" Margin="24" />
+        </Grid>
+      </Border>
+
+      <StackPanel Grid.Row="3" Margin="0,8,0,0">
+        <Grid x:Name="ItemEditRow" Margin="0,0,0,8">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="134" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+          </Grid.ColumnDefinitions>
+          <TextBlock Text="{DynamicResource L.DisplayName}" VerticalAlignment="Center" Margin="2,0,0,0" />
+          <TextBox x:Name="ItemTitleBox" Grid.Column="1" LostFocus="ItemTitle_LostFocus"
+                   Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" />
+          <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="6,0,0,0">
+            <Button Content="{DynamicResource L.Remove}" Click="RemoveItem_Click" />
+          </StackPanel>
+        </Grid>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="134" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+          </Grid.ColumnDefinitions>
+          <TextBlock Text="{DynamicResource L.WebAddress}" VerticalAlignment="Center" Margin="2,0,0,0" />
+          <TextBox x:Name="UrlBox" Grid.Column="1" KeyDown="UrlBox_KeyDown" />
+          <Button Grid.Column="2" Content="{DynamicResource L.Add}" Margin="6,0,0,0" Click="AddUrl_Click" />
+        </Grid>
+        <Grid Margin="0,8,0,0">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="134" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <TextBlock Text="{DynamicResource L.Layout}" VerticalAlignment="Center" Margin="2,0,0,0" />
+          <WrapPanel x:Name="LayoutPanel" Grid.Column="1">
+            <RadioButton Style="{StaticResource Chip}" Tag="auto" Content="{DynamicResource L.LayoutAuto}" Checked="Layout_Changed" />
+            <RadioButton Style="{StaticResource Chip}" Tag="row" Content="{DynamicResource L.LayoutRow}" Checked="Layout_Changed" />
+            <RadioButton Style="{StaticResource Chip}" Tag="2" Content="{DynamicResource L.Columns2}" Checked="Layout_Changed" />
+            <RadioButton Style="{StaticResource Chip}" Tag="3" Content="{DynamicResource L.Columns3}" Checked="Layout_Changed" />
+            <RadioButton Style="{StaticResource Chip}" Tag="4" Content="{DynamicResource L.Columns4}" Checked="Layout_Changed" />
+            <RadioButton Style="{StaticResource Chip}" Tag="list" Content="{DynamicResource L.LayoutList}" Checked="Layout_Changed" />
+          </WrapPanel>
+        </Grid>
+      </StackPanel>
+
+      <Border Grid.Row="4" Margin="0,12,0,0" Padding="12,10" CornerRadius="6" Background="{DynamicResource Panel}"
+              BorderBrush="{DynamicResource Line}" BorderThickness="1">
+        <DockPanel>
+          <Button x:Name="PinButton" DockPanel.Dock="Right" Content="{DynamicResource L.PinToTaskbar}" Margin="12,0,0,0" VerticalAlignment="Center" Click="Pin_Click" />
+          <TextBlock TextWrapping="Wrap" Foreground="{DynamicResource FgDim}" VerticalAlignment="Center"
+                     Text="{DynamicResource L.PinNote}" />
+        </DockPanel>
+      </Border>
+    </Grid>
+
+    <TextBlock x:Name="NoGroupHint" Grid.Column="2" Foreground="{DynamicResource FgDim}" Visibility="Collapsed"
+               HorizontalAlignment="Center" VerticalAlignment="Center" Text="{DynamicResource L.NoGroupHint}" />
+  </Grid>
+</Window>

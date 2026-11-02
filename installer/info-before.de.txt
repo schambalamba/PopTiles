@@ -1,0 +1,21 @@
+﻿WO WIRD INSTALLIERT?
+Das Programm wird nur für deinen Windows-Benutzer installiert, und zwar immer in diesen Ordner:
+%LOCALAPPDATA%\Programs\PopTiles
+
+Du brauchst dafür keine Administratorrechte.
+
+
+WARUM KANN ICH DEN ORDNER NICHT WÄHLEN?
+Das Programm speichert deine Gruppen und Icons direkt neben sich und braucht dort Schreibrechte. In Ordnern wie „C:\Program Files“ dürfte es ohne Administratorrechte nicht speichern. Deshalb ist der Ort fest eingestellt. Das ist kein Fehler.
+
+
+STARTET DAS PROGRAMM AUTOMATISCH MIT WINDOWS?
+Nein. Das Programm läuft nicht im Hintergrund. Angepinnte Gruppen starten erst beim Klick und beenden sich mit der Kachel wieder.
+
+
+WELCHE ORDNER WERDEN ANGELEGT?
+Du musst nichts von Hand anlegen. Das Setup legt den Programmordner an. Den Startmenü-Eintrag und den Ordner für deine Gruppen legt das Programm selbst an, sobald du es öffnest und die erste Gruppe erstellst.
+
+
+WIE KOMMT EINE GRUPPE IN DIE TASKLEISTE?
+Beim Erstellen einer Gruppe fragt Windows einmal, ob sie an die Taskleiste angeheftet werden soll. Diese Rückfrage schreibt Windows vor, deshalb geht es nicht ganz ohne Klick. Die Frage erscheint unten rechts als Mitteilung, Windows-Benachrichtigungen müssen dafür eingeschaltet sein. Beim Löschen einer Gruppe wird ihr Icon automatisch wieder entfernt.

@@ -1,0 +1,21 @@
+﻿¿DÓNDE SE INSTALA?
+El programa se instala solo para tu usuario de Windows, siempre en esta carpeta:
+%LOCALAPPDATA%\Programs\PopTiles
+
+No necesitas permisos de administrador.
+
+
+¿POR QUÉ NO PUEDO ELEGIR LA CARPETA?
+El programa guarda tus grupos e iconos justo a su lado, así que necesita poder escribir allí. En carpetas como «C:\Program Files» no podría guardar sin permisos de administrador. Por eso la ubicación es fija. No es un error.
+
+
+¿SE INICIA AUTOMÁTICAMENTE CON WINDOWS?
+No. El programa no se ejecuta en segundo plano. Los grupos anclados solo se inician al hacer clic y se cierran junto con su mosaico.
+
+
+¿QUÉ CARPETAS SE CREAN?
+No tienes que crear nada a mano. El instalador crea la carpeta del programa. El programa crea su entrada en el menú Inicio y la carpeta de tus grupos cuando lo abres y creas tu primer grupo.
+
+
+¿CÓMO LLEGA UN GRUPO A LA BARRA DE TAREAS?
+Al crear un grupo, Windows pregunta una vez si debe anclarse a la barra de tareas. Windows exige esta confirmación, así que hace falta un clic. La pregunta aparece abajo a la derecha como notificación, por lo que las notificaciones de Windows deben estar activadas. Al eliminar un grupo, su icono se desancla automáticamente.

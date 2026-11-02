@@ -1,0 +1,21 @@
+﻿OÙ LE PROGRAMME EST-IL INSTALLÉ ?
+Le programme est installé uniquement pour ton utilisateur Windows, toujours dans ce dossier :
+%LOCALAPPDATA%\Programs\PopTiles
+
+Aucun droit d'administrateur n'est nécessaire.
+
+
+POURQUOI NE PUIS-JE PAS CHOISIR LE DOSSIER ?
+Le programme enregistre tes groupes et tes icônes juste à côté de lui et doit donc pouvoir y écrire. Dans des dossiers comme « C:\Program Files », il ne pourrait pas enregistrer sans droits d'administrateur. C'est pourquoi l'emplacement est fixe. Ce n'est pas une erreur.
+
+
+LE PROGRAMME DÉMARRE-T-IL AVEC WINDOWS ?
+Non. Le programme ne tourne pas en arrière-plan. Les groupes épinglés ne démarrent que lorsque tu cliques dessus et se ferment avec leur tuile.
+
+
+QUELS DOSSIERS SONT CRÉÉS ?
+Tu n'as rien à créer toi-même. Le programme d'installation crée le dossier du programme. Le programme crée son entrée dans le menu Démarrer et le dossier de tes groupes lorsque tu l'ouvres et crées ton premier groupe.
+
+
+COMMENT UN GROUPE ARRIVE-T-IL DANS LA BARRE DES TÂCHES ?
+Lorsque tu crées un groupe, Windows demande une fois s'il doit être épinglé à la barre des tâches. Windows impose cette confirmation, un clic reste donc nécessaire. La question s'affiche en bas à droite sous forme de notification : les notifications de Windows doivent donc être activées. Lorsque tu supprimes un groupe, son icône est détachée automatiquement.

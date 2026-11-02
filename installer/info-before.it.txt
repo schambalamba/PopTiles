@@ -1,0 +1,21 @@
+﻿DOVE VIENE INSTALLATO?
+Il programma viene installato solo per il tuo utente di Windows, sempre in questa cartella:
+%LOCALAPPDATA%\Programs\PopTiles
+
+Non servono diritti di amministratore.
+
+
+PERCHÉ NON POSSO SCEGLIERE LA CARTELLA?
+Il programma salva i tuoi gruppi e le icone accanto a sé, quindi deve poter scrivere in quella posizione. In cartelle come «C:\Program Files» non potrebbe salvare senza diritti di amministratore. Per questo la posizione è fissa. Non è un errore.
+
+
+SI AVVIA AUTOMATICAMENTE CON WINDOWS?
+No. Il programma non resta in esecuzione in background. I gruppi aggiunti si avviano solo quando ci fai clic e si chiudono insieme al loro riquadro.
+
+
+QUALI CARTELLE VENGONO CREATE?
+Non devi creare nulla a mano. Il programma di installazione crea la cartella del programma. Il programma crea la sua voce nel menu Start e la cartella dei tuoi gruppi quando lo apri e crei il primo gruppo.
+
+
+COME ARRIVA UN GRUPPO SULLA BARRA DELLE APPLICAZIONI?
+Quando crei un gruppo, Windows chiede una volta se aggiungerlo alla barra delle applicazioni. Windows richiede questa conferma, quindi serve un clic. La domanda appare in basso a destra come notifica, perciò le notifiche di Windows devono essere attive. Quando elimini un gruppo, la sua icona viene rimossa automaticamente.

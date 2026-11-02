@@ -1,0 +1,54 @@
+<Window x:Class="TaskbarGruppen.IconGalleryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource L.InstalledIconsTitle}" Width="580" Height="640" MinHeight="400" ResizeMode="CanResize"
+        WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+        Background="{DynamicResource Bg}" Foreground="{DynamicResource Fg}"
+        FontFamily="Segoe UI Variable Text, Segoe UI" FontSize="13" UseLayoutRounding="True"
+        TextOptions.TextFormattingMode="Display">
+  <DockPanel Margin="16">
+    <DockPanel DockPanel.Dock="Top" Margin="0,0,0,10">
+      <Button x:Name="WindowsButton" DockPanel.Dock="Right" Margin="6,0,0,0" Click="Windows_Click" />
+      <Button x:Name="AppsButton" DockPanel.Dock="Right" Margin="6,0,0,0" Click="Apps_Click" />
+      <TextBox x:Name="SearchBox" TextChanged="SearchBox_TextChanged" AutomationProperties.Name="{DynamicResource L.Search}" />
+    </DockPanel>
+    <TextBlock DockPanel.Dock="Bottom" Margin="2,10,0,0" Foreground="{DynamicResource FgDim}"
+               Text="{DynamicResource L.GalleryHint}" />
+    <Border Background="{DynamicResource Panel}" BorderBrush="{DynamicResource Line}" BorderThickness="1" CornerRadius="6" Padding="4">
+      <ListBox x:Name="RowList" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling"
+               VirtualizingPanel.ScrollUnit="Item" AutomationProperties.Name="Icons">
+        <ListBox.ItemContainerStyle>
+          <Style TargetType="ListBoxItem">
+            <Setter Property="Focusable" Value="False" />
+            <Setter Property="Template">
+              <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                  <ContentPresenter />
+                </ControlTemplate>
+              </Setter.Value>
+            </Setter>
+          </Style>
+        </ListBox.ItemContainerStyle>
+        <ListBox.ItemTemplate>
+          <DataTemplate>
+            <ItemsControl ItemsSource="{Binding}">
+              <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                  <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+              </ItemsControl.ItemsPanel>
+              <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                  <Button Width="60" Height="60" Margin="2" Padding="0" BorderThickness="0" Background="Transparent"
+                          Click="Icon_Click" ToolTip="{Binding Title}" AutomationProperties.Name="{Binding Title}">
+                    <Image Source="{Binding Icon}" Width="36" Height="36" RenderOptions.BitmapScalingMode="Fant" />
+                  </Button>
+                </DataTemplate>
+              </ItemsControl.ItemTemplate>
+            </ItemsControl>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+      </ListBox>
+    </Border>
+  </DockPanel>
+</Window>

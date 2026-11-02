@@ -1,0 +1,21 @@
+﻿WHERE IS IT INSTALLED?
+The program is installed for your Windows user only, always in this folder:
+%LOCALAPPDATA%\Programs\PopTiles
+
+You don't need administrator rights.
+
+
+WHY CAN'T I CHOOSE THE FOLDER?
+The program stores your groups and icons right next to itself, so it needs write access there. In folders like "C:\Program Files" it couldn't save without administrator rights. That's why the location is fixed. This is not an error.
+
+
+DOES IT START AUTOMATICALLY WITH WINDOWS?
+No. The program doesn't run in the background. Pinned groups only start when you click them and close together with their tile.
+
+
+WHICH FOLDERS ARE CREATED?
+You don't need to create anything by hand. Setup creates the program folder. The program creates its Start menu entry and the folder for your groups when you open it and create your first group.
+
+
+HOW DOES A GROUP GET ONTO THE TASKBAR?
+When you create a group, Windows asks once whether it should be pinned to the taskbar. Windows requires this confirmation, so it can't be done without a click. The question appears as a notification at the bottom right, so Windows notifications must be turned on. When you delete a group, its icon is unpinned automatically.

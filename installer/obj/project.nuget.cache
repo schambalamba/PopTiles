@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZuIRktuwMHI=",
+  "success": true,
+  "projectFilePath": "F:\\KI\\CODEX\\Windows Optimierungen\\TaskbarGruppen\\installer\\tools.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\White-Star\\.nuget\\packages\\tools.innosetup\\6.7.3\\tools.innosetup.6.7.3.nupkg.sha512"
+  ],
+  "logs": []
+}

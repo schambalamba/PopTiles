@@ -1,0 +1,9 @@
+<!-- Laedt nur den Inno-Setup-Compiler in den NuGet-Cache, baut selbst nichts und installiert nichts im System. -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageDownload Include="Tools.InnoSetup" Version="[6.7.3]" />
+  </ItemGroup>
+</Project>
