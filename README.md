@@ -82,17 +82,6 @@ Click next to the tile or press **Esc** to close it. The gear in the tile opens 
 - **Icons:** If the taskbar still shows an old icon after a change, sign out of Windows and back in.
 - **Websites** get a letter tile, because PopTiles doesn't download website icons.
 
-## Supported game stores
-
-| Store | How games are found | Tested |
-|---|---|---|
-| Steam | Windows list of installed programs | Listed and added, not launched yet |
-| Ubisoft Connect | Windows list of installed programs | Listed and added, not launched yet |
-| Epic Games | Epic's local game files | Listed, not launched yet |
-| GOG | GOG's registry entries, including launch parameters | Listed, not launched yet |
-| EA | Windows list of installed programs | Not tested with an installed game |
-| Battle.net | Windows list of installed programs | Not tested with an installed game |
-
 Any other program can be added with **File**. Bug reports and test results are welcome.
 
 ## Requirements and project status
